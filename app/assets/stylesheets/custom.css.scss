@@ -1,0 +1,40 @@
+.welcome-box {
+	border: 3px solid #068587;
+}
+
+.nav.navbar-right li {
+	.btn {
+		color: #fff !important;
+		margin-top: 5%;
+	}
+	.btn-danger:hover {
+		background-color: darken(#d9534f, 20%) !important;
+	}
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.left-padding {
+	padding-right: 0;
+	padding-top: 0;
+	padding-right: 0;
+	padding-left: 15px !important;
+}
+
+.logout {
+	padding-left: 0;
+}
+
+.user-name {
+	padding-top: 15px;
+}
+
+.btn-sign-in {
+	background-color: #068587;
+	&:hover{
+		background-color: #ED5538;
+		color:black;
+	}
+}

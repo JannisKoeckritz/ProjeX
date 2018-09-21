@@ -1,0 +1,35 @@
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to "ProjeX", root_path, class: 'navbar-brand' %>
+
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <% if current_user %>
+      <ul class="nav navbar-nav col-md-6">
+        <li><%= link_to "Meine Projekte", root_path %></li>
+        <li><%= link_to "Meine Todos", root_path %></li>
+      </ul>
+      <ul class="nav navbar-right">
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, class: 'btn btn-md btn-danger', method: :delete  %>
+          </li>
+      </ul>
+    <% else %>
+        <ul class="nav navbar-right">
+          <li>
+            <%= link_to "Anmelden", new_user_session_path, class: 'btn btn-sign-in btn-sm btn-primary' %>
+          </li>
+        </ul>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+          
+          </ul>
