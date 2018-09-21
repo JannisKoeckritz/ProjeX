@@ -1,4 +1,3 @@
-source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -23,7 +22,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 
 gem 'jquery-rails'
-
+gem 'sendgrid-ruby'
 gem 'font-awesome-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
