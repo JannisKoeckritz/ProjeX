@@ -21,8 +21,10 @@ gem 'twitter-bootstrap-rails'
 
 gem 'devise-bootstrap-views'
 
+gem 'devise-i18n'
+
 gem 'jquery-rails'
-gem 'sendgrid-ruby'
+
 gem 'font-awesome-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
