@@ -9,8 +9,18 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    adress: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: 'projex.bb17@gmail.com',
+    password: 'Pwspmiss!.0405?.',
+    authentification: 'plain',
+    enable_starttls_auto: true
+  }
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

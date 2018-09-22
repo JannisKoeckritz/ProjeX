@@ -12,16 +12,17 @@
       <ul class="nav navbar-nav col-md-6">
         <li><%= link_to "Meine Projekte", root_path %></li>
         <li><%= link_to "Meine Todos", root_path %></li>
+        <li><%= link_to "Mein Profil", myprofile_path %></li>
       </ul>
       <ul class="nav navbar-right">
           <li>
-            <%= link_to "Logout", destroy_user_session_path, class: 'btn btn-md btn-danger', method: :delete  %>
+            <%= link_to "Logout", destroy_user_session_path, class: 'btn btn-md btn-danger btn-max', method: :delete  %>
           </li>
       </ul>
     <% else %>
         <ul class="nav navbar-right">
           <li>
-            <%= link_to "Anmelden", new_user_session_path, class: 'btn btn-sign-in btn-sm btn-primary' %>
+            <%= link_to "Anmelden", new_user_session_path, class: 'btn btn-sign-in btn-sm btn-primary btn-max' %>
           </li>
         </ul>
     <% end %>
