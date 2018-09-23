@@ -1,0 +1,15 @@
+<h1>My Projects</h1>
+<% @projects.each do |project| %>
+	<h3><%= link_to project.project_name, project_path(project) %></h3>
+	<div class="lead"><%= project.goal %></div>
+	<% if project.end === true %>
+		<div class="progress project-progress">
+	  	<div class="progress-bar green" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+	<% else %>
+		<div class="progress project-progress">
+			<div class="progress-bar red" role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+		</div> <!-- progress -->
+	<% end %>
+<% end %>
+<%= link_to "Neues Projekt anlegen", new_project_path, class: 'btn btn-success' %>

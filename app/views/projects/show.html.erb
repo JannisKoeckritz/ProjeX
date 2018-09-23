@@ -1,0 +1,6 @@
+<h3><%= @project.project_name %></h3>
+<% if @project.goal %>
+	<div class="lead"><%= @project.goal %></div>
+<% else %>
+	<div class="lead">Keine Zielstellung angegeben</div>
+<% end %>
