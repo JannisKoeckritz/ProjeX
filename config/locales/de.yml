@@ -132,6 +132,11 @@ de:
       send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail, mit der Anleitung, wie Sie Ihren Account entsperren können.
       unlocked: Ihr Account wurde entsperrt. Bitte melden Sie sich an, um fortzufahren.
   errors:
+    models:
+      user:
+        attributes:
+          email:
+            taken: Diese E-Mail-Adresse wird bereits verwendet.
     messages:
       already_confirmed: wurde bereits bestätigt, bitte versuchen Sie, sich anzumelden
       confirmation_period_expired: musste innerhalb von %{period} bestätigt werden, bitte neu anfordern.
