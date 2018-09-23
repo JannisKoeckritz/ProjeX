@@ -1,0 +1,41 @@
+<h3><%= @todo.task %></h3>
+<div class="row">
+	<div class="col-lg-6">
+<table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">ID</th>
+      <td><%= @todo.id %></td>
+    </tr>
+    <tr>
+      <th scope="row">Beendet</th>
+      <td><%= translate_bool(@todo.finished) %></td>
+    </tr>
+    <tr>
+      <th scope="row">Mindestkosten</th>
+      <td><%= @todo.min_cost %></td>
+    </tr>
+    <tr>
+      <th scope="row">Maximalkosten</th>
+      <td><%= @todo.max_cost %></td>
+    </tr>
+    <tr>
+      <th scope="row">Aufwand <small>(1-10)</small></th>
+      <td><%= @todo.level %></td>
+    </tr>
+    <tr>
+      <th scope="row">Erstellt von</th>
+      <td><%= @todo.created_by %></td>
+    </tr>
+    <tr>
+      <th scope="row">Erstellt am</th>
+      <td><%= @todo.created_at %></td>
+    </tr>
+    <tr>
+      <th scope="row">Zuletzt bearbeitet</th>
+      <td><%= @todo.updated_at %></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>

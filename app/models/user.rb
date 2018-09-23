@@ -6,9 +6,9 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@th-wildau+\.[a-z]+\z/i
   validates 	:email, presence: true, uniqueness: { case_sensitive: false },
 				length: { maximum: 105 }, format: { with: VALID_EMAIL_REGEX }
-	# validates :first_name, presence: true
-	# validates :last_name, presence: true
-	# validates :username, presence: true
+	validates :first_name, presence: true, length: { minimum: 2 }
+	validates :last_name, presence: true, length: { minimum: 3 }
+	validates :username, presence: true, length: { minimum: 3 }
   has_many :user_projects
   has_many :projects, through: :user_projects
 

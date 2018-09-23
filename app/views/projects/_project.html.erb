@@ -1,0 +1,31 @@
+<% @projects.each do |project| %>
+	<div class="project_partial">
+		<div class='row'>
+			<div class='col-lg-11'>
+				<h3>#<%= project.id %> <%= link_to project.project_name, project_path(project) %></h3>
+				<div class="lead"><%= project.goal %></div>
+				<% if project.todos %>
+					<% if get_percent(project) %>
+						<div class="progress project-progress align-middle">
+				  		<div class="progress-bar green" role="progressbar" style="width: <%= get_percent(project) %>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
+					<%end%>
+				<%end%>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-md-1 col-lg-1 align-middle">
+				<% if project.end === true %>
+					<p>Beendet :-)</p>
+				<% else %>
+					<p>noch offen</p>
+				<% end %>
+			</div>
+			<div class="project-info">
+					<small>erstellt von: <%= project.created_by %>, <%= time_ago_in_words(project.created_at) %></small>
+			</div>
+		</div>
+	</div>
+<% end %> 
+
+

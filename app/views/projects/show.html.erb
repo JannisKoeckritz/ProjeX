@@ -4,3 +4,6 @@
 <% else %>
 	<div class="lead">Keine Zielstellung angegeben</div>
 <% end %>
+<% @project_todos.each do |todo| %>
+<p><%= link_to todo.task, todo_path(todo) %></p>
+<% end %>
