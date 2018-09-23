@@ -10,7 +10,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
     config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { :host => 'projex-bb17.herokuapp.com', :protocol => 'http' }
+  config.action_mailer.default_url_options = { :host => 'projex-bb17.herokuapp.com', :protocol => 'https' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     user_name: ENV['MAIL_USERNAME'],
