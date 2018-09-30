@@ -36,10 +36,9 @@ class TodosController < ApplicationController
 	end
 
 	def add
-		binding.pry
 		@new_assignment = UserTodo.new(user_id: current_user.id, todo_id: @todo.id)
 		if @new_assignment.save
-			flash[:success] = "Die Aufgabe wurde ihnen erfolgreich zugewiesen"
+			flash[:success] = "Die Aufgabe wurde Ihnen erfolgreich zugewiesen"
 			redirect_to mytodos_path
 		else
 			flash[:danger] = "Fehler beim Speichern des Eintrags. Bitte wenden Sie sich an den Administrator"

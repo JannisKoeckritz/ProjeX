@@ -4,6 +4,12 @@
 <% else %>
 	<div class="lead">Keine Zielstellung angegeben</div>
 <% end %>
+<div class="lead"><small>Mitglieder (<%= @project.users.all.count %>):<% @project.users.all.each do |u| %>
+	<span><%= u.email %></span>
+	<% end %>
+</small>
+<%= link_to " Mitglied hinzufügen", {:controller => 'projects', :action => 'add', :id => @project.id}, class: 'fa fa-user' %>
+</div>
 <div class="row">
 <% @project_todos.each do |t| %>
 <div class="card_todo col-sm-12 col-md-6 col-lg-3">

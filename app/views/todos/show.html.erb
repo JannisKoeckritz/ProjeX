@@ -8,6 +8,10 @@
       <td><%= @todo.id %></td>
     </tr>
     <tr>
+      <th scope="row">Projekt</th>
+      <td><%= @todo.project.project_name %></td>
+    </tr>
+    <tr>
       <th scope="row">Beendet</th>
       <td><%= translate_bool(@todo.finished) %></td>
     </tr>
@@ -37,6 +41,14 @@
     </tr>
   </tbody>
 </table>
+</div>
+<% if @todo.details.present? %>
+<div class="col-lg-6">
+  <h4>Details</h3>
+  <p><%= @todo.details %></p>
+</div>
+<% end %>
+<div class="col-lg-12">
 <% if current_user_todo(@todo) %>
   <p>Diese Aufgabe wurde dir bereits zugewiesen</p>
 <% else %>

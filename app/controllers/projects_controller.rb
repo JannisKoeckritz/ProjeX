@@ -48,6 +48,15 @@ class ProjectsController < ApplicationController
 		redirect_to myprojects_path
 	end
 
+	def add
+		@project = Project.find(params[:id])
+		redirect_to project_search_path(@project)
+	end
+
+	def search
+		@users = User.all
+	end
+
 	private
 
 	def project_params
