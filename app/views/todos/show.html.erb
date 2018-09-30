@@ -37,5 +37,10 @@
     </tr>
   </tbody>
 </table>
+<% if current_user_todo(@todo) %>
+  <p>Diese Aufgabe wurde dir bereits zugewiesen</p>
+<% else %>
+<%= link_to "Mir zuweisen", add_todo_path(@todo) %>
+<% end %>
 </div>
 </div>

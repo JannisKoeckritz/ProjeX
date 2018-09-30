@@ -9,8 +9,10 @@ class User < ApplicationRecord
 	validates :first_name, presence: true, length: { minimum: 2 }
 	validates :last_name, presence: true, length: { minimum: 3 }
 	validates :username, presence: true, length: { minimum: 3 }
-  has_many :user_projects
+  has_many :user_projects, dependent: :destroy
   has_many :projects, through: :user_projects
+  has_many :user_todos, dependent: :destroy
+  has_many :todos, through: :user_todos
 
   def full_name
   	return "#{first_name} #{last_name}".strip if (first_name || last_name)

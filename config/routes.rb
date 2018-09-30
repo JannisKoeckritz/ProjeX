@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'myprofile', to: 'users#show'
  	resources :projects, only: [:create, :show, :update, :edit, :destroy, :new]
  	get 'myprojects', to: 'projects#index'
+ 	get 'mytodos', to: 'todos#index'
+ 	get 'add_todo', to: 'todos#add'
  	resources :todos, only: [:create, :show, :update, :edit, :destroy, :new]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

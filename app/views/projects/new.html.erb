@@ -1,22 +1,2 @@
 <h2>Neues Projekt</h2>
- <%= form_for @project, :html => {:class => "form-horizontal center"} do |f| %>
-      <div class="form-group">
-        <%= f.label :project_name, "Name des Projektes", class: "col-md-8" %>
-        <div class="col-md-8">
-          <%= f.text_field :project_name, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :goal, "Zielstellung des Projektes", class: "col-md-8" %>
-        <div class="col-md-8">
-          <%= f.text_area :goal, class: "form-control" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :deadline, "Zielstellung des Projektes", class: "col-md-8" %>
-        <div class="col-md-8">
-          <%= f.datetime_field :deadline, class: "form-control" %>
-        </div>
-      </div>
-      <%= f.submit "Submit", class: "btn btn-default btn-primary" %>  
- <% end %>
+<%= render 'projects/form' %>

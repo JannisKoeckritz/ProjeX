@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Functionality
+
+* user can registrate, create new projects and new tasks for these projects
