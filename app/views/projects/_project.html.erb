@@ -2,7 +2,7 @@
 	<div class="project_partial">
 		<div class='row'>
 			<div class='col-lg-11'>
-				<h3>#<%= project.id %> <%= link_to project.project_name, project_path(project) %></h3>
+				<h3>#<%= project.id %> <%= link_to project.project_name, project_path(project), class: 'color-head' %></h3>
 				<div class="lead"><%= project.goal %></div>
 				<% if project.todos %>
 					<% if get_percent(project) %>
@@ -21,8 +21,8 @@
 					<p>noch offen</p>
 				<% end %>
 			</div>
-			<div class="project-info">
-					<small>erstellt von: <%= project.created_by %>, <%= time_ago_in_words(project.created_at) %></small>
+			<div class="col-lg-9">
+					<small>erstellt von: <%= project.created_by %></small>
 			</div>
 		</div>
 	</div>

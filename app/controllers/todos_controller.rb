@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
 	before_action :set_todo, only: [:edit, :update, :show, :destroy]
+	before_action :require_same_user, only: [ :edit, :update, :destroy]
 	before_action :add_todo, only: [:add]
 
 	def index
@@ -30,6 +31,13 @@ class TodosController < ApplicationController
 	end
 
 	def update
+		if @todo.update(todo_params)
+			flash[:warning] = "Aufgabe wurde erfolgreich geupdatet"
+			redirect_to todo_path(@todo)
+		else
+			flash[:danger] = "Aufgabe konnte nicht aktualisiert werden"
+			redirect_to mytodos_path
+		end
 	end
 
 	def destroy
@@ -60,7 +68,14 @@ class TodosController < ApplicationController
 		@todo = Todo.find(params[:format])
 	end
 
+	def require_same_user
+		if @todo.users.where(id: current_user.id).blank?
+			flash[:danger] ="Du kannst nur an deinen eigenen Projekten arbeiten"
+			redirect_to mytodos_path
+		end
+	end
+
 	def todo_params
-		params.require(:todo).permit(:task, :min_cost, :max_cost, :level, :project_id)
+		params.require(:todo).permit(:task, :min_cost, :max_cost, :level, :project_id, :details)
 	end
 end

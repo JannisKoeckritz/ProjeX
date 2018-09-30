@@ -1,4 +1,4 @@
-<h3><%= @todo.task %></h3>
+<h3><%= @todo.task %> - <small><%= link_to @todo.project.project_name, project_path(@todo.project.id) %></small></h3>
 <div class="row">
 	<div class="col-lg-6">
 <table class="table">
@@ -44,7 +44,7 @@
 </div>
 <% if @todo.details.present? %>
 <div class="col-lg-6">
-  <h4>Details</h3>
+  <h4>Details</h4>
   <p><%= @todo.details %></p>
 </div>
 <% end %>
@@ -54,5 +54,6 @@
 <% else %>
 <%= link_to "Mir zuweisen", add_todo_path(@todo) %>
 <% end %>
+<%= link_to 'Bearbieten', edit_todo_path(@todo), class: 'btn btn-sm btn-warning' %>
 </div>
 </div>

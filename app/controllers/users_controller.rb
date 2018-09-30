@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 			if !@users.blank?
 				format.js { render partial: 'members/result' }
 			else
-				format.html {myprojects_path}
+				format.html { root_path }
 			end
 		end
 	end

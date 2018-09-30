@@ -18,7 +18,13 @@
 	  <div class="card-header bg-transparent"><%= t.id %></div>
 	  <div class="card-body">
 	    <h5 class="card-title"><%= t.task %></h5>
-	    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	    <p class="card-text">
+	    	<div><%= t.min_cost %></div>
+	    	<div><%= t.max_cost %></div>
+	    	<div><%= t.details %></div>
+	    	<div><%= t.finished %></div>
+	    	<div><%= t.created_at %></div>
+	    </p>
 	  </div>
 	  <div class="card-footer bg-transparent"><%= t.created_by %></div>
 	  <%= link_to "Zur Aufgabe", todo_path(t) %>

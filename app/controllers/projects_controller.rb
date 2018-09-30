@@ -55,6 +55,13 @@ class ProjectsController < ApplicationController
 
 	def search
 		@users = User.all
+		@project = Project.find(params[:project_id])
+	end
+
+	def add_member
+		@project.users < User.find(params[:user_id])
+		flash[:sucsess] = "User wurde dem Projekt hinzugefügt"
+		redirect_to search_member_path
 	end
 
 	private

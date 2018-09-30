@@ -116,6 +116,15 @@
 	background-color: green;
 }
 
+.black {
+	color: black;
+	background-color: white;
+}
+
+.right {
+	float: right;
+}
+
 .project_partial {
 	border-bottom: 1px solid grey;
 	padding-bottom:5px;
@@ -137,4 +146,23 @@
 
 .add_member {
 	font-family: sans-serif;
+}
+
+.fa.big{
+	font-size: 30px;
+}
+
+.form-box {
+	border: 2px solid #F2B134;
+	padding: 20px;
+	background-color: #F2B134;
+}
+
+.color-head {
+	color:#ED553B;
+}
+
+.color-head:hover {
+	color: #4FB99F;
+	text-decoration: none;
 }

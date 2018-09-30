@@ -13,6 +13,14 @@ module ApplicationHelper
 		else
 			"Fehler. Bitte wenden Sie sich an den Administrator."
 		end
-	end	
+	end
+
+	def project_user?(user, project)
+		if UserProject.where(user_id: user.id, project_id: project.id)
+			true
+		else
+			false
+		end
+	end
 
 end

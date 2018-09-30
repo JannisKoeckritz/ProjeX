@@ -6,9 +6,22 @@
 	  <div class="card-header bg-transparent"><%= t.id %> - <small><%= t.project.project_name %></small></div>
 	  <div class="card-body">
 	    <h5 class="card-title"><%= t.task %></h5>
-	    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	    <p class="card-text">
+	    	<div><%= t.min_cost %></div>
+	    	<div><%= t.max_cost %></div>
+	    	<div><%= t.details %></div>
+	    	<div><%= t.finished %></div>
+	    	<div><%= t.created_at %></div>
+	    </p>
 	  </div>
-	  <div class="card-footer bg-transparent"><%= t.created_by %><%= link_to "Zur Aufgabe", todo_path(t) %></div>
+	  <div class="card-footer bg-transparent"><%= t.created_by %>
+	  	<%= link_to todo_path(t) do %>
+	  		<i class="fa fa-cogs big"></i>
+	  		<% end %>
+	  	<%= link_to edit_todo_path(t) do %>
+	  		<i class="fa fa-pencil big"></i>
+	  		<% end %>
+	  	</div>
 	</div>
 	</div>
 </div>
