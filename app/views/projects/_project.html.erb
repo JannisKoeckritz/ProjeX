@@ -3,7 +3,7 @@
 		<div class='row'>
 			<div class='col-lg-11'>
 				<h3>#<%= project.id %> <%= link_to project.project_name, project_path(project), class: 'color-head' %></h3>
-				<div class="lead"><%= project.goal %></div>
+				<div class="goal"><%= project.goal %></div>
 				<% if project.todos %>
 					<% if get_percent(project) %>
 						<div class="progress project-progress align-middle">

@@ -1,6 +1,6 @@
 <%= form_for @todo, :html => {:class => "form-horizontal center form-box"} do |f| %>
   <div class="form-group row">
-    <%= f.label :project, "Projektnummer", class: "col-sm-2 col-form-label" %>
+    <%= f.label :project, "Projekt", class: "col-sm-2 col-form-label" %>
     <div class="col-sm-10 col-lg-6"> 
     <%= select(:todo, :project_id, current_user.projects.all.collect {|p| [ p.project_name, p.id ] }) %>
     </div>

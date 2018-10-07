@@ -48,20 +48,43 @@ class ProjectsController < ApplicationController
 		redirect_to myprojects_path
 	end
 
-	def add
-		@project = Project.find(params[:id])
-		redirect_to project_search_path(@project)
+	def search
+		@project = Project.find(params[:project_id])
+		@@projects = @project
+		@users = User.all
 	end
 
-	def search
-		@users = User.all
-		@project = Project.find(params[:project_id])
+	def user_search
+		@project = @@projects
+		if params[:search_param].blank?
+			flash.now[:danger] = "You have entered an empty search string"
+			binding.pry
+		else
+			@users = User.search(params[:search_param])
+			@users = current_user.except_current_user(@users)
+			flash.now[:danger] = "No users match this search criteria" if @users.blank?
+			binding.pry
+		end
+		respond_to do |format|
+			if !@users.blank?
+				format.js { render partial: 'members/result' }
+			else
+				format.html { root_path }
+			end
+		end
 	end
 
 	def add_member
-		@project.users < User.find(params[:user_id])
-		flash[:sucsess] = "User wurde dem Projekt hinzugefügt"
-		redirect_to search_member_path
+		@project = Project.find(params[:project_id])
+		@user = User.find(params[:user_id])
+		if UserProject.where(:user_id => @user.id, :project_id => @project.id).count > 0
+			flash[:danger] = "User wurde bereits hinzugefügt"
+			redirect_to project_search_path(@project)
+		else
+			UserProject.create(:user_id => @user.id, :project_id => @project.id )
+			flash[:success] = "User wurde dem Projekt hinzugefügt"
+			redirect_to project_search_path(@project)
+		end
 	end
 
 	private

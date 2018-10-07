@@ -70,7 +70,7 @@ class TodosController < ApplicationController
 
 	def require_same_user
 		if @todo.users.where(id: current_user.id).blank?
-			flash[:danger] ="Du kannst nur an deinen eigenen Projekten arbeiten"
+			flash[:danger] ="Du kannst nur an deinen eigenen Aufgaben arbeiten"
 			redirect_to mytodos_path
 		end
 	end

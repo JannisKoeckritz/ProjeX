@@ -8,7 +8,7 @@
 	<span><%= u.email %></span>
 	<% end %>
 </small>
-<%= link_to " Mitglied hinzufügen", {:controller => 'projects', :action => 'add', :id => @project.id}, class: 'fa fa-user' %>
+<%= link_to " Mitglied hinzufügen", project_search_path(:project_id => @project.id), class: 'fa fa-user' %>
 </div>
 <div class="row">
 <% @project_todos.each do |t| %>
