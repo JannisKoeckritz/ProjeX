@@ -58,12 +58,10 @@ class ProjectsController < ApplicationController
 		@project = @@projects
 		if params[:search_param].blank?
 			flash.now[:danger] = "You have entered an empty search string"
-			binding.pry
 		else
 			@users = User.search(params[:search_param])
 			@users = current_user.except_current_user(@users)
 			flash.now[:danger] = "No users match this search criteria" if @users.blank?
-			binding.pry
 		end
 		respond_to do |format|
 			if !@users.blank?
