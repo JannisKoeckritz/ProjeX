@@ -14,16 +14,19 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-6 col-md-1 col-lg-1 align-middle">
+			<span class="col-sm-6 col-md-1 col-lg-1 align-middle">
 				<% if project.end === true %>
 					<p>Beendet :-)</p>
 				<% else %>
 					<p>noch offen</p>
 				<% end %>
-			</div>
-			<div class="col-lg-9">
-					<small>erstellt von: <%= project.created_by %></small>
-			</div>
+			</span>
+			<span class="col-lg-11">
+					erstellt von: <%= project.created_by %>
+			</span>
+			<span class="col-lg-12">
+				Gesamtkosten: <%= get_cost(project.todos)%>
+			</span>
 		</div>
 	</div>
 <% end %> 
