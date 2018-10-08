@@ -13,7 +13,6 @@ class ExportController < ApplicationController
 	end
 
 	def single_project_export
-		binding.pry
 		@project = Project.find(params[:project_id])
 		@project_todos = @project.todos
 		export_data = ExportService.csv_export(@project_todos)
