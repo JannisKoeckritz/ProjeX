@@ -15,6 +15,9 @@ Rails.application.routes.draw do
  	resources :todos, only: [:create, :show, :update, :edit, :destroy, :new]
  	get 'mytodos/export', to: 'export#export'
  	get 'myprojects/export', to: 'export#project_export'
+ 	resources :todos, only: [:finish] do
+ 		get 'finish', to: 'todos#finish'
+ 	end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

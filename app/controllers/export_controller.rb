@@ -1,4 +1,5 @@
 class ExportController < ApplicationController
+
 	def export
 			@todos = current_user.todos
 			export_data = ExportService.csv_export(@todos)
@@ -18,4 +19,5 @@ class ExportController < ApplicationController
 		export_data = ExportService.csv_export(@project_todos)
 		send_data "\uFEFF" + export_data, filename: "#{@project.project_name}-Todos - #{Date.today.strftime("%d.%m.%Y")}.csv"
 	end
+	
 end

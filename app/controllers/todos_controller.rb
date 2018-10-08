@@ -54,6 +54,19 @@ class TodosController < ApplicationController
 		end
 	end
 
+	def finish
+		@todo = Todo.find(params[:todo_id])
+		@todo.finished = true
+		if @todo.save
+			flash[:success] = "Die Aufgabe wurde erfolgreich abgeschlossen"
+			redirect_to mytodos_path
+		else
+			flash[:danger] = "Beim Abschließen der Aufgabe ist ein Fehler aufgetreten.
+			 Bitte wenden Sie sich an den Administrator"
+			 redirect_to mytodos_path
+			end
+	end
+
 	private
 
 	def get_status_of_curUT

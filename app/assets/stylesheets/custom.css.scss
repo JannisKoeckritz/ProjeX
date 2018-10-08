@@ -3,6 +3,15 @@
 	margin-top: 10px;
 }
 
+a {
+	color: #4FB99F;
+}
+
+a:hover {
+	color: #36826f;
+	text-decoration: none;
+}
+
 .messages {
 	margin-top: 5px;
 	margin-bottom: 5px;
@@ -136,11 +145,11 @@
 }
 
 .card_todo {
-	border: 1px solid #F2B134;
+	border: 2px solid #F2B134;
 	border-radius: 18px;
 	padding: 10px;
+	padding-bottom: 0px !important;
 	margin: 5px;
-
 	width: 240px;
 }
 
@@ -179,8 +188,7 @@
 }
 
 .member-bubble {
-	border: 1px solid #F2B134;
-	background-color: #F2B134;
+	color: #4FB99F;
 	border-radius: 10px;
 	padding: 4px;
 }
@@ -190,7 +198,7 @@
 }
 
 .finished-card {
-	border: 2px solid #4FB99F;
+	border: 3px solid #4FB99F;
 	border-radius: 18px;
 	padding: 10px;
 	margin: 5px;
@@ -201,4 +209,16 @@
 	border: 3px solid #ED553B;
 	padding: 10px;
 	border-radius: 15px;
+}
+
+.card-footer-own {
+	max-height: 30px;
+}
+
+.borderless {
+	border: none;
+}
+
+.right {
+	float: right;
 }

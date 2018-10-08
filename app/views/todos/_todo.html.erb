@@ -1,34 +1,39 @@
-<div class="row">
 <% obj.each do |t| %>
 <% if t.finished == true %>
-	<div class="finished-card col-xs-12 col-sm-12 col-md-6 col-lg-3">
+	<div class="finished-card col-xs-12 col-sm-6 col-md-6 col-lg-3">
 <% else %>
-	<div class="card_todo col-xs-12 col-sm-12 col-md-6 col-lg-3">
+	<div class="card_todo col-xs-12 col-sm-6 col-md-6 col-lg-3">
 <% end %>
-	<div class="card">
 	  <div class="card-header bg-transparent"><%= t.id %> - <small><%= t.project.project_name %></small></div>
 	  <div class="card-body">
-	    <h5 class="card-title"><%= t.task %></h5>
+	    <h5 class="card-title">
+	    	<%= t.task %>
+	    	<% if t.finished == true %>
+	    	<span>🎉</span>
+	    	<% end %>
+	    </h5>
 	    <p class="card-text">
 	    	<div><strong> Mindestkosten: </strong><%= t.min_cost %></div>
 	    	<div><strong> Maximalkosten: </strong><%= t.max_cost %></div>
 	    	<% if !t.details.blank? %>
 	    		<div><strong> Anmerkungen: </strong><%= t.details %></div>
 	    	<% end %>
-	    	<div><strong> Status: </strong><%= t.finished %></div>
+	    	<div><strong> Status: </strong><%= translate_status(t.finished) %></div>
 	    	<div><strong> Erstellt: </strong><%= t.created_at %>, <%= t.created_by %></div>
 	    </p>
 	  </div>
-	  <div class="card-footer bg-transparent">
+	  <div class="card-footer-own">
 	  	<%= link_to todo_path(t) do %>
 	  		<i class="fa fa-cogs big"></i>
 	  		<% end %>
 	  	<%= link_to edit_todo_path(t) do %>
 	  		<i class="fa fa-pencil big"></i>
 	  		<% end %>
-	  		<%= link_to "√" %>
+	  	<% if !t.finished == true %>
+	  		<%= link_to todo_finish_path(t) do %>
+	  		<i class="fa fa-check big right"></i>
+	  		<% end %>
+	  	<% end %>
 	  	</div>
-	</div>
 </div>
 <% end %>
-</div>

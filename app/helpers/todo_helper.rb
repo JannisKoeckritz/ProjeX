@@ -6,4 +6,12 @@ module TodoHelper
 			false
 		end
 	end
+
+	def translate_status(status)
+		if status == true
+			"Beendet"
+		else
+			"Noch offen"
+		end
+	end
 end

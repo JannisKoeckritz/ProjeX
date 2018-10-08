@@ -1,4 +1,7 @@
 <div class="container">
+	<% if current_user %>
+		<%= render 'info/blogs' %>
+	<%end %>
 	<div class="jumbotron welcome-box">
 		<h3 class="welcome-heading">ProjeX</h3>
 		<div class="lead">
@@ -13,7 +16,4 @@
 		<div class="scheme4 big">
 		</div>
 	</div>
-	<% if current_user %>
-		<%= render 'info/blogs' %>
-	<%end %>
 </div>
