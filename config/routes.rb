@@ -9,10 +9,12 @@ Rails.application.routes.draw do
  	get 'add_to_project', to: 'projects#add_member'
  	resources :projects, only: [:search] do
  		get 'search'
+ 		get 'export', to: 'export#single_project_export'
  	end
  	get 'search_member', to: 'projects#user_search'
  	resources :todos, only: [:create, :show, :update, :edit, :destroy, :new]
  	get 'mytodos/export', to: 'export#export'
+ 	get 'myprojects/export', to: 'export#project_export'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

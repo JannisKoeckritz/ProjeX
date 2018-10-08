@@ -1,10 +1,14 @@
 class ExportService
 
-	def initialize(todos)
+	def initialize(elements)
 	end
 
 	def self.csv_export(todos)
 		new(todos).todos_to_csv(todos)
+	end
+
+	def self.project_csv_export(projects)
+		new(projects).projects_to_csv(projects)
 	end
 
 	def todos_to_csv(todos)
@@ -26,6 +30,25 @@ class ExportService
 					t.updated_at
 				]
 			end
+		end
+	end
+
+	def projects_to_csv(projects)
+		CSV.generate(col_sep: ';') do |csv|
+			csv << ["ID", "Projektname","Zielstellung", "Beendet?", "Fertigstellung bis", 
+				"Erstellt von", "Erstellt am", "Update am"]
+				projects.each do |p|
+					csv << [
+						p.id,
+						p.project_name,
+						p.goal,
+						p.end,
+						"noch nicht gesetzt",
+						p.created_by,
+						p.created_at,
+						p.updated_at
+					]
+				end
 		end
 	end
 
