@@ -203,12 +203,6 @@ a:hover {
 	width: 240px;
 }
 
-.blog-post {
-	border: 3px solid #ED553B;
-	padding: 10px;
-	border-radius: 15px;
-}
-
 .card-footer-own {
 	max-height: 30px;
 }
@@ -231,4 +225,9 @@ a:hover {
 	font-family: "Muli";
 	font-weight: 100;
 	font-size: 50px;
+}
+
+.image-i {
+	max-width: 50px;
+	max-height: 20px;
 }

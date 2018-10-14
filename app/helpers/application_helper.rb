@@ -8,10 +8,8 @@ module ApplicationHelper
 	def translate_bool(bool)
 		if bool == true
 			"Ja"
-		elsif bool == false
-			"Nein"
 		else
-			"Fehler. Bitte wenden Sie sich an den Administrator."
+			"Nein"
 		end
 	end
 

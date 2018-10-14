@@ -2,18 +2,19 @@
 <% if @users %>
 	<% if @users.size > 0 and @users.size != User.all %>
 		<div id="friend-lookup-results" class="results-block col-lg-12">
-			<table class="search-results-table col-lg-12">
+			<table class="table">
 				<thead>
 					<tr>
-						<th>Name</th>
+						<th class="row">Name</th>
 						<th>Username</th>
-						<th>Action</th>
+						<th>E-Mail</th>
+						<th>Aktion</th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @users.each do |user| %>
 						<tr>
-							<td><%= user.full_name %></td>
+							<td class="row"><%= user.full_name %></td>
 							<td><%= user.username %></td>
 							<td><%= user.email %></td>
 							<% if UserProject.where(project_id: @project.id, user_id: user.id).count > 0 %>
