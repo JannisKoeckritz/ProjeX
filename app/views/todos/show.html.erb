@@ -17,11 +17,11 @@
     </tr>
     <tr>
       <th scope="row">Mindestkosten</th>
-      <td><%= @todo.min_cost %></td>
+      <td><%= in_euro(@todo.min_cost) %></td>
     </tr>
     <tr>
       <th scope="row">Maximalkosten</th>
-      <td><%= @todo.max_cost %></td>
+      <td><%= in_euro(@todo.max_cost) %></td>
     </tr>
     <tr>
       <th scope="row">Aufwand <small>(1-10)</small></th>
@@ -33,11 +33,11 @@
     </tr>
     <tr>
       <th scope="row">Erstellt am</th>
-      <td><%= @todo.created_at %></td>
+      <td><%= @todo.created_at.strftime("%d.%m.%Y") %></td>
     </tr>
     <tr>
       <th scope="row">Zuletzt bearbeitet</th>
-      <td><%= @todo.updated_at %></td>
+      <td><%= @todo.updated_at.strftime("%d.%m.%Y") %></td>
     </tr>
   </tbody>
 </table>
@@ -52,7 +52,7 @@
 <% if current_user_todo(@todo) %>
   <p>Diese Aufgabe wurde dir bereits zugewiesen</p>
 <% else %>
-<%= link_to "Mir zuweisen", add_todo_path(@todo) %>
+<%= link_to "Mir zuweisen", add_todo_path(@todo), class: 'btn btn-sm btn-danger' %>
 <% end %>
 <%= link_to 'Bearbeiten', edit_todo_path(@todo), class: 'btn btn-sm btn-warning' %>
 </div>

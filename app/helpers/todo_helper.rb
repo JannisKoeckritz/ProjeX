@@ -14,4 +14,8 @@ module TodoHelper
 			"Noch offen"
 		end
 	end
+
+	def in_euro(number)
+		number.round(2).to_s + "€"
+	end
 end

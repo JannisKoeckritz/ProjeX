@@ -11,12 +11,19 @@
 	<%= link_to " +", project_search_path(:project_id => @project.id), class: 'fa fa-user' %>
 </span>
 </div>
+
 <div class="row">
 	<%= render 'projects/todo', obj: @project_todos %>
 </div>
+
+
 <div class="action-block">
 <%= link_to "Neue Aufgabe hinzufügen", new_todo_path, class: 'btn btn-success' %>
 <%= link_to "Projekt bearbeiten", edit_project_path(@project), class: 'btn btn-warning' %>
 <%= link_to "Projekt löschen", project_path(@project), class: 'btn btn-danger', method: :delete, data: { confirm: "Sind Sie sicher, dass Sie das Projekt löschen wollen? Dabei gehen alle erstellten Aufgaben verloren. Dieser Schritt kann nicht rückgängig gemacht werden."} %>
 <%= link_to "Download Projekt", project_export_path(@project), target: '_blank', class: 'btn btn-default btn-info scheme4 borderless' %>
+<% if current_user.username == @project.created_by %>
+	<%= link_to "PROJEKT BEENDEN", project_ending_path(@project), target: '_blank', class: 'btn btn-xs btn-danger' %>
+	<% end %>
+
 </div>

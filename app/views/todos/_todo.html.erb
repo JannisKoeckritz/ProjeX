@@ -9,22 +9,22 @@
 	    <h5 class="card-title">
 	    	<%= t.task %>
 	    	<% if t.finished == true %>
-	    	<span>🎉</span>
+	    	<span> 🎉</span>
 	    	<% end %>
 	    </h5>
 	    <p class="card-text">
-	    	<div><strong> Mindestkosten: </strong><%= t.min_cost %></div>
-	    	<div><strong> Maximalkosten: </strong><%= t.max_cost %></div>
+	    	<div><strong> Mindestkosten: </strong><%= in_euro(t.min_cost) %></div>
+	    	<div><strong> Maximalkosten: </strong><%= in_euro(t.max_cost) %></div>
 	    	<% if !t.details.blank? %>
-	    		<div><strong> Anmerkungen: </strong><%= t.details %></div>
+	    		<div><strong> Anmerkungen: </strong><%= truncate(t.details, length: 80) %></div>
 	    	<% end %>
 	    	<div><strong> Status: </strong><%= translate_status(t.finished) %></div>
-	    	<div><strong> Erstellt: </strong><%= t.created_at %>, <%= t.created_by %></div>
+	    	<div><strong> Erstellt: </strong><%= t.created_at.strftime("%d.%m.%Y") %>, <%= t.created_by %></div>
 	    </p>
 	  </div>
 	  <div class="card-footer-own">
 	  	<%= link_to todo_path(t) do %>
-	  		<i class="fa fa-cogs big"></i>
+	  		<i class="fa fa-info-circle big"></i>
 	  		<% end %>
 	  	<%= link_to edit_todo_path(t) do %>
 	  		<i class="fa fa-pencil big"></i>

@@ -2,7 +2,7 @@
 <% if t.finished == true %>
 	<div class="finished-card col-xs-12 col-sm-6 col-md-6 col-lg-3">
 <% else %>
-	<div class="card_todo col-sm-6 col-md-6 col-lg-3">
+	<div class="card_todo col-xs-12 col-sm-6 col-md-6 col-lg-3">
 <% end %>
 	  <div class="card-header bg-transparent"><%= t.id %> - <small><%= t.project.project_name %></small></div>
 	  <div class="card-body">
@@ -16,20 +16,32 @@
 	    	<div><strong> Mindestkosten: </strong><%= t.min_cost %></div>
 	    	<div><strong> Maximalkosten: </strong><%= t.max_cost %></div>
 	    	<% if !t.details.blank? %>
-	    		<div><strong> Anmerkungen: </strong><%= t.details %></div>
+	    		<div><strong> Anmerkungen: </strong><%= truncate(t.details, length: 50) %></div>
 	    	<% end %>
 	    	<div><strong> Status: </strong><%= translate_status(t.finished) %></div>
-	    	<div><strong> Erstellt: </strong><%= t.created_at %>, <%= t.created_by %></div>
+	    	<div><strong> Bearbeiter (<%= t.users.count %>): </strong> 
+	    		<% t.users.each do |u| %>
+	    			<div><%= u.email %></div>
+	    		<% end %>
+
+	    	</div>
+	    	<div><strong> Erstellt: </strong><%= t.created_at.strftime("%d.%m.%Y") %>
+	    	</div>
 	    </p>
 	  </div>
 	  <div class="card-footer-own">
 	  	<%= link_to todo_path(t) do %>
-	  		<i class="fa fa-binoculars big"></i>
+	  		<i class="fa fa-info-circle big"></i>
 	  		<% end %>
 	  	<%= link_to edit_todo_path(t) do %>
 	  		<i class="fa fa-pencil big"></i>
 	  		<% end %>
-	  	<% if !t.finished == true && user_todo(t) %>
+	  	<% if !t.finished == true && !current_user_todo(t) %>
+	  		<%= link_to add_todo_path(t) do %>
+	  			<i class="fa fa-plus-circle big"></i>
+	  		<% end %>
+	  	<% end %>
+	  	<% if !t.finished == true && current_user_todo(t) %>
 	  		<%= link_to todo_finish_path(t) do %>
 	  		<i class="fa fa-check big right"></i>
 	  		<% end %>

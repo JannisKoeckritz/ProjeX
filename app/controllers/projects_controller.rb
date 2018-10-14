@@ -85,6 +85,18 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def ending
+		@project = Project.find(params[:project_id])
+		@project.end = true
+		if @project.save
+			flash[:success] = "Das Projekt wurde erfolgreich abgeschlossen."
+			redirect_to myprojects_path
+		else
+			flash[:danger] = "Fehler beim Speichern. Bitte wenden Sie sich an den Administrator"
+			redirect_to myprojects_path
+		end
+	end
+
 	private
 
 	def project_params

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
  	resources :projects, only: [:search] do
  		get 'search'
  		get 'export', to: 'export#single_project_export'
+ 		get 'ending', to: 'projects#ending'
  	end
  	get 'search_member', to: 'projects#user_search'
  	resources :todos, only: [:create, :show, :update, :edit, :destroy, :new]
