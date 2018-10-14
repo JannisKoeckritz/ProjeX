@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   root 'landing#index'
+
   get 'myprofile', to: 'users#show'
  	resources :projects, only: [:create, :show, :update, :edit, :destroy, :new]
  	get 'myprojects', to: 'projects#index'
