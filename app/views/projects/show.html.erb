@@ -12,32 +12,11 @@
 </span>
 </div>
 <div class="row">
-<% @project_todos.each do |t| %>
-<div class="card_todo col-xs-12 col-sm-6 col-md-5 col-lg-3">
-	<div class="card" style="max-width: 18rem;">
-		<div class="card-block">
-	  <div class="card-header bg-transparent"><%= t.id %></div>
-	  <div class="card-body">
-	    <h5 class="card-title"><%= t.task %></h5>
-	    <p class="card-text">
-	    	<div><strong> Mindestkosten: </strong><%= t.min_cost %></div>
-	    	<div><strong> Maximalkosten: </strong><%= t.max_cost %></div>
-	    	<% if !t.details.blank? %>
-	    		<div><strong> Anmerkungen: </strong><%= t.details %></div>
-	    	<% end %>
-	    	<div><strong> Status: </strong><%= t.finished %></div>
-	    	<div><strong> Erstellt: </strong><%= t.created_at %>, <%= t.created_by %></div>
-	    </p>
-	  </div>
-	  <%= link_to "Zur Aufgabe", todo_path(t) %>
-	</div>
-	</div>
-</div>
-<% end %>
+	<%= render 'projects/todo', obj: @project_todos %>
 </div>
 <div class="action-block">
 <%= link_to "Neue Aufgabe hinzufügen", new_todo_path, class: 'btn btn-success' %>
 <%= link_to "Projekt bearbeiten", edit_project_path(@project), class: 'btn btn-warning' %>
 <%= link_to "Projekt löschen", project_path(@project), class: 'btn btn-danger', method: :delete, data: { confirm: "Sind Sie sicher, dass Sie das Projekt löschen wollen? Dabei gehen alle erstellten Aufgaben verloren. Dieser Schritt kann nicht rückgängig gemacht werden."} %>
-<%= link_to "Projekt Download", project_export_path(@project), target: '_blank' %>
+<%= link_to "Download Projekt", project_export_path(@project), target: '_blank', class: 'btn btn-default btn-info scheme4 borderless' %>
 </div>

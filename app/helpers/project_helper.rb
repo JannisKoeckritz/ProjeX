@@ -10,4 +10,12 @@ module ProjectHelper
 		return "Mindestkosten: #{min}€, Maximalkosten: #{max}€"
 	end
 
+	def user_todo(todo)
+		if UserTodo.where(user_id: current_user.id, todo_id: todo.id). count == 1
+			true
+		else
+			false
+		end
+	end
+
 end

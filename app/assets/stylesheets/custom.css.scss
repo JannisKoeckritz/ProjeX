@@ -1,3 +1,10 @@
+@font-face {
+	font-family: "Muli";
+	src: asset-url('Muli-Regular.ttf');
+	font-weight: 100;
+	font-style: normal;
+}
+
 .welcome-box {
 	border: 3px solid #068587;
 	margin-top: 10px;
@@ -135,9 +142,9 @@ a:hover {
 }
 
 .project_partial {
-	border-bottom: 1px solid grey;
-	padding-bottom:5px;
-	padding-top: 5px; 
+	border: 2px solid  #F2B134;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 
 .action {
@@ -148,7 +155,6 @@ a:hover {
 	border: 2px solid #F2B134;
 	border-radius: 18px;
 	padding: 10px;
-	padding-bottom: 0px !important;
 	margin: 5px;
 	width: 240px;
 }
@@ -172,11 +178,10 @@ a:hover {
 }
 
 .color-head:hover {
-	color: #4FB99F;
 	text-decoration: none;
 }
 
-.big {
+.big-scheme {
 	height:100px;
 }
 
@@ -221,4 +226,21 @@ a:hover {
 
 .right {
 	float: right;
+}
+
+.id-label {
+	color:white;
+	background-color: #068587;
+	padding: 3px;
+}
+
+.myproject {
+	font-family: "Muli";
+	font-weight: 100;
+	font-size: 50px;
+}
+
+.goal {
+	padding-left: 10px;
+	padding-right: 10px;
 }
