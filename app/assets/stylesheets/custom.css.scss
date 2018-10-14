@@ -121,7 +121,8 @@ a:hover {
 }
 
 .project-progress {
-	height:5px;
+	height:8px;
+	margin-top: 15px;
 }
 
 .red {
@@ -171,14 +172,6 @@ a:hover {
 	border: 2px solid #F2B134;
 	padding: 20px;
 	background-color: #F2B134;
-}
-
-.color-head {
-	color:#F2B134;
-}
-
-.color-head:hover {
-	text-decoration: none;
 }
 
 .big-scheme {
@@ -238,9 +231,4 @@ a:hover {
 	font-family: "Muli";
 	font-weight: 100;
 	font-size: 50px;
-}
-
-.goal {
-	padding-left: 10px;
-	padding-right: 10px;
 }

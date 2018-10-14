@@ -5,40 +5,77 @@
 				<div class="accordion" id="accordionExample">
 					<h3 id="header">
 						<span class="id-label img-circle">#<%= project.id %></span>
-
-						 <%= link_to project.project_name, project_path(project), class: 'color-head' %>
-					
-
+							<%= link_to project.project_name, project_path(project), class: 'project-title' %>
 						</h3>
-					<div class="goal"><%= project.goal %></div>
-					 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= project.id %>" aria-expanded="true" aria-controls="collapse<%= project.id %>">
-	  		<i class="fa fa-arrow-circle-down big"></i>
-        	</button>
-        <div id="collapse<%= project.id %>" class="collapse" aria-labelledby="header" data-parent="#accordionExample">
+					<div class="goal"><i class="fa fa-bullseye icon-color-2"></i> <%= project.goal %>
+					</div>
+
 					<% if project.todos %>
 						<% if get_percent(project) %>
-							<div class="progress project-progress align-middle">
-					  		<div class="progress-bar green" role="progressbar" style="width: <%= get_percent(project) %>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+							<div class="progress project-progress">
+							<% if get_percent(project) >= 75 %>
+									<div class="progress-bar green-project" role="progressbar" style="width: <%= get_percent(project) %>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+							<% elsif get_percent(project) >= 45 %>
+								<div class="progress-bar yellow-project" role="progressbar" style="width: <%= get_percent(project) %>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+							<% else %>
+								<div class="progress-bar red-project" role="progressbar" style="width: <%= get_percent(project) %>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+							<% end %>
+								
+					  		
 							</div>
+
 						<%end%>
 					<%end%>
-					<div class="row">
-						<span class="col-sm-6 align-middle">
-							<% if project.end === true %>
-								Beendet :-)
-							<% else %>
-								noch offen
-							<% end %>
-						</span>
-						<span class="col-sm-6">
-								erstellt von: <%= project.created_by %>
-						</span>
-						<span class="col-sm-6">
-							Gesamtkosten: <%= get_cost(project.todos)%>
-						</span>
-					</div>
+					 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= project.id %>" aria-expanded="true" aria-controls="collapse<%= project.id %>">
+	  			<i class="fa fa-arrow-circle-down big icon-color-1"></i>
+        	</button>
+        <div id="collapse<%= project.id %>" class="collapse" aria-labelledby="header" data-parent="#accordionExample">
+
+
+        	<table class="table">
+					  <tbody>
+					    <tr>
+					      <th scope="row">Status</th>
+					      <td>
+					      	<% if project.end === true %>
+										Beendet <span>🎉</span>
+									<% else %>
+										noch offen
+									<% end %>
+					      </td>
+					    </tr>
+					    <tr>
+					      <th scope="row">Aufgaben</th>
+					      <td><%= project.todos.count %></td>
+					    </tr>
+					    <tr>
+					      <th scope="row">davon erledigt</th>
+					      <td><%= project.todos.where(finished: true).count %>
+					      	<% if project.todos %>
+					       (<%= get_percent(project) %>%)
+					       <% end %>
+					     </td>
+					    </tr>
+					    <tr>
+					      <th scope="row">Mindestkosten</th>
+					      <td><%= get_cost(project.todos, "min") %></td>
+					    </tr>
+					    <tr>
+					      <th scope="row">Maximalkosten</th>
+					      <td><%= get_cost(project.todos, "max") %></td>
+					    </tr>
+					    <tr>
+					      <th scope="row">Mtglieder</th>
+					      <td><%= project.users.all.count %></td>
+					    </tr>
+					    <tr>
+					      <th scope="row">erstellt von</th>
+					      <td><%= project.created_by %></td>
+					    </tr>
+					  </tbody>
+					</table>
 				</div>
-				</div>
+			</div>
 	</div>
 </div>
 </div>

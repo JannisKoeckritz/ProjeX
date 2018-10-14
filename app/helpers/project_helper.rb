@@ -1,13 +1,17 @@
 module ProjectHelper
 
-	def get_cost(todos)
-		min = 0
-		max = 0
-		todos.each do |t| 
-			min = min + t.min_cost
-			max = max + t.max_cost
+	def get_cost(todos, value )
+		cost = 0
+		if value == "min"
+			todos.each do |t| 
+				cost = cost + t.min_cost
+			end
+		elsif value == "max"
+			todos.each do |t|
+				cost = cost + t.max_cost
+			end
 		end
-		return "Mindestkosten: #{min}€, Maximalkosten: #{max}€"
+		return cost.to_s + "€"
 	end
 
 	def user_todo(todo)
