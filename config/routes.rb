@@ -21,5 +21,7 @@ Rails.application.routes.draw do
  		get 'finish', to: 'todos#finish'
  	end
 
+ 	get 'data-privacy-policy', to: 'landing#privacy'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
